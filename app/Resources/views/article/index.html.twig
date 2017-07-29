@@ -5,6 +5,13 @@
   <h1>
     Hello this is article with id = {{id}}
   </h1>
+  <h2>Request</h2>
+  {{dump(request)}}
+  <h2>response</h2>
+  {{dump(response)}}
+  <h2>{{url}}</h2>
+  <h2>Mailer</h2>
+  {{dump(mail)}}
 {% endblock %}
 
 {% block stylesheets %}
