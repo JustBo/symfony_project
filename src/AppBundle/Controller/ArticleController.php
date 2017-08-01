@@ -30,6 +30,16 @@ class ArticleController extends Controller{
         if($id == 1){
           throw $this->createNotFoundException('The product does not exist');
         }
+        // $product = $this->getDoctrine()
+        // ->getRepository(Product::class)
+        // ->find($productId);
+        //delete
+        //$em->remove($product);
+        // $em->flush();
+        //update
+        // $product->setName('New product name!');
+        // $em->flush();
+        $product = $em->getRepository(Product::class)->find($productId);
         return $this->render('article/index.html.twig',[
           'id' => $id,
           'request' => $request,
