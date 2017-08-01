@@ -3,8 +3,23 @@
 
 {% block body %}
   <h1>Hello symfony</h1>
+  {% for blog in blogs %}
+    <div class="blog-item">
+      <div class="id">
+        {{blog.id}}
+      </div>
+      <div class="title">
+        {{blog.title}}
+      </div>
+    </div>
+  {% endfor %}
 {% endblock %}
 
 {% block stylesheets %}
-
+  {{parent()}}
+  <link rel="stylesheet" href="{{asset('css/homepage/main.css')}}">
+{% endblock %}
+{% block javascripts %}
+  {{parent()}}
+  <script type="text/javascript" src="{{asset('/homepage/script.js')}}"></script>
 {% endblock %}
