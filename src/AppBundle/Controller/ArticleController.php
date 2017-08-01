@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use AppBundle\Entity\Blog;
 //use Swift_Mailer;
 
 class ArticleController extends Controller{
@@ -14,22 +15,24 @@ class ArticleController extends Controller{
      * @Route("article/{id}", name="article")
      */
     public function showAction($id){
-        $request = Request::createFromGlobals();
+        $repository = $this->getDoctrine()->getRepository(Blog::class);
+        $article = $repository->findOneBy(array('id' => $id));
+        //$request = Request::createFromGlobals();
         //$request = $request->getPathInfo();
-        $request = $request->query->get('id');
-        $response = new Response();
+        //$request = $request->query->get('id');
+        //$response = new Response();
 
-        $url = $this->generateUrl(
-            'article',
-            array('id' => '4'),
-            UrlGeneratorInterface::ABSOLUTE_URL
-        );
-        $mailer = $this->get('mailer');
+        // $url = $this->generateUrl(
+        //     'article',
+        //     array('id' => '4'),
+        //     UrlGeneratorInterface::ABSOLUTE_URL
+        // );
+        //$mailer = $this->get('mailer');
         //redirect to route with <name>
         //return $this->redirectToRoute('homepage');
-        if($id == 1){
-          throw $this->createNotFoundException('The product does not exist');
-        }
+        // if($id == 1){
+        //   throw $this->createNotFoundException('The product does not exist');
+        // }
         // $product = $this->getDoctrine()
         // ->getRepository(Product::class)
         // ->find($productId);
@@ -39,13 +42,12 @@ class ArticleController extends Controller{
         //update
         // $product->setName('New product name!');
         // $em->flush();
-        $product = $em->getRepository(Product::class)->find($productId);
+        //$product = $em->getRepository(Product::class)->find($productId);
+        if(!$article){
+          throw $this->createNotFoundException('This post does not exist!');
+        }
         return $this->render('article/index.html.twig',[
-          'id' => $id,
-          'request' => $request,
-          'response' => $response,
-          'url'=> $url,
-          'mail' => $mailer,
+          'article' => $article
         ]);
     }
 }

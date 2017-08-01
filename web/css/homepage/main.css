@@ -1,3 +1,7 @@
-.blog-item>div{
-  display:inline-block;
+.blog-item{
+  display:block;
+  padding-top:10px;
+}
+.blog-item span{
+  padding:15px;
 }

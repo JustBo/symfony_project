@@ -4,14 +4,14 @@
 {% block body %}
   <h1>Hello symfony</h1>
   {% for blog in blogs %}
-    <div class="blog-item">
-      <div class="id">
+    <a href="{{ path('article',{'id':blog.id}) }}" class="blog-item">
+      <span class="id">
         {{blog.id}}
-      </div>
-      <div class="title">
+      </span>
+      <span class="title">
         {{blog.title}}
-      </div>
-    </div>
+      </span>
+    </a>
   {% endfor %}
 {% endblock %}
 
