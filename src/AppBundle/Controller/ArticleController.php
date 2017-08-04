@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use AppBundle\Entity\Blog;
+use AppBundle\Entity\BlogPost;
 //use Swift_Mailer;
 
 class ArticleController extends Controller{
@@ -15,7 +15,7 @@ class ArticleController extends Controller{
      * @Route("article/{id}", name="article")
      */
     public function showAction($id){
-        $repository = $this->getDoctrine()->getRepository(Blog::class);
+        $repository = $this->getDoctrine()->getRepository(BlogPost::class);
         $article = $repository->findOneBy(array('id' => $id));
         //$request = Request::createFromGlobals();
         //$request = $request->getPathInfo();
