@@ -1,8 +1,13 @@
 <footer>
   <div class="container">
-    Recent Posts
-    Populat Posts
-    Social buttons
-    Footer
+    <div class="row">
+      {{ render(controller('AppBundle:Blog:showFooterPosts' )) }}
+      <div class="col-md-4">
+        <div class="footer-title">
+          Social buttons
+        </div>
+      </div>
+    </div>
+
   </div>
 </footer>

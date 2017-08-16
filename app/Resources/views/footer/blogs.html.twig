@@ -1,0 +1,19 @@
+<div class="col-md-4">
+  <div class="footer-title">Recent Posts</div>
+  <div class="footer-posts">
+    {% for blog in recentBlogs %}
+      <div class="footer-post">
+        <div class="footer-post-title">
+          {{blog.title}}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="footer-post">
+    <div class="footer-title">
+      Popular posts
+    </div>
+  </div>
+</div>
