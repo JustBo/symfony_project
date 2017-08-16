@@ -4,12 +4,28 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
+          <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+          <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap-grid.css') }}">
           <link rel="stylesheet" href="{{ asset('css/main.css') }}">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+          {% block navbar %}
+            {% include 'navbar/navbar.html.twig' %}
+          {% endblock %}
+          <div class="wrap container">
+            <div class="content">
+              {% block content %}
+
+              {% endblock %}
+            </div>
+          </div>
+        {% endblock %}
+        {% block footer %}
+          {% include 'footer/footer.html.twig' %}
+        {% endblock %}
         {% block javascripts %}
           <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
           <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>

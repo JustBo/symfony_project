@@ -1,0 +1,50 @@
+HTML, BODY {
+    height: 100%;
+}
+A:hover{
+  text-decoration:none;
+  color:orange;
+}
+HEADER {
+  background-color:#fff;
+  position: fixed;
+  width: 100%;
+  left: 0;
+}
+
+HEADER NAV LI {
+  display:inline-block;
+  padding:10px;
+}
+/*HEADER NAV LI A{
+  color:white;
+}*/
+.content{
+  padding-top:30px;
+}
+.header-search{
+  height:40px;
+}
+.search-icon{
+  height:30px;
+  margin-top:5px;
+  float:right;
+  cursor:pointer;
+}
+FOOTER{
+  background-color:#222222;
+  color:white;
+}
+.wrap {
+  min-height: 100%;
+  /* equal to footer height */
+	margin-bottom: -200px;
+}
+.wrap:after {
+  content: "";
+  display: block;
+}
+FOOTER, .wrap:after {
+  /* .push must be the same height as footer */
+	height: 200px;
+}
