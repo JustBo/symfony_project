@@ -19,4 +19,13 @@ class BlogPostRepository extends \Doctrine\ORM\EntityRepository {
 
   }
 
+  public function findPopularPosts($limit) {
+
+    return $this->getEntityManager()
+      ->createQuery("SELECT a FROM AppBundle:BlogPost a ORDER BY a.id DESC")
+      ->setMaxResults($limit)
+      ->getResult();
+
+  }
+
 }

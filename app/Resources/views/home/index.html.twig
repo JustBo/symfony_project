@@ -2,6 +2,14 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+  <div class="home-logo">
+    <div class="logo-name">
+      <span class="bloger-name">Bloger Name <span class="dot">.</span></span>
+    </div>
+    <div class="logo-quote">
+      Travel & enjoy
+    </div>
+  </div>
   <h1>Hello symfony</h1>
   {% for blog in blogs %}
     <a href="{{ path('article',{'id':blog.id}) }}" class="blog-item">
@@ -17,6 +25,7 @@
 
 {% block stylesheets %}
   {{parent()}}
+  <link href="https://fonts.googleapis.com/css?family=Lily+Script+One" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/homepage/main.css')}}">
 {% endblock %}
 {% block javascripts %}

@@ -12,10 +12,10 @@ background: #fff;
 body, code, dl, dd, form, pre {
 margin: 0;
 }
-a:link,a:visited {
+a,a:visited {
   color: black;
 }
-a:link, a:visited, ins {
+a, a:visited, a:hover, ins{
   text-decoration: none;
 }
 a:link img, a:visited img, object, fieldset, abbr, acronym {

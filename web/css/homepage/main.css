@@ -5,3 +5,39 @@
 .blog-item span{
   padding:15px;
 }
+.home-logo{
+  font-family:'Lily Script One';
+  text-align:center;
+}
+.logo-name{
+  font-size: 40px;
+  position:relative;
+}
+.bloger-name{
+  display:inline-block;
+  position:relative;
+  z-index:2;
+  background-color:#fff;
+}
+.logo-quote{
+  font-size:22px;
+}
+.logo-name span.dot{
+  color:orange;
+}
+.logo-name:before,
+.logo-name:after{
+  content:'';
+  position:absolute;
+  height:2px;
+  top:30px;
+  width:35%;
+  background-color:grey;
+  z-index:1;
+}
+.logo-name:before{
+  left:0;
+}
+.logo-name:after{
+  right:0;
+}

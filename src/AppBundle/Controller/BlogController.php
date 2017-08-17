@@ -23,11 +23,14 @@ class BlogController extends Controller{
     }
 
     public function showFooterPostsAction(){
+        $limit = 3;
         $repository = $this->getDoctrine()->getRepository(BlogPost::class);
-        $recentBlogs = $repository->findRecentPosts(3);
+        $recentBlogs = $repository->findRecentPosts($limit);
+        $popularBlogs = $repository->findPopularPosts($limit);
         // $blogs = $repository->findAll();
         return $this->render('footer/blogs.html.twig',[
-          'recentBlogs' => $recentBlogs
+          'recentBlogs' => $recentBlogs,
+          'popularBlogs' => $popularBlogs
         ]);
     }
 

@@ -2,12 +2,8 @@ HTML, BODY {
     height: 100%;
     font-family:'Poppins';
 }
-A:hover{
-  text-decoration:none;
-  color:orange;
-}
 HEADER {
-  background-color:#fff;
+  background-color:#171717;
   position: fixed;
   width: 100%;
   left: 0;
@@ -16,12 +12,21 @@ HEADER {
 HEADER NAV LI {
   display:inline-block;
   padding:10px;
-}
-/*HEADER NAV LI A{
+  cursor:pointer;
   color:white;
-}*/
+}
+HEADER NAV LI A,
+HEADER NAV LI A:visited{
+  color:white;
+}
+HEADER NAV LI A:hover{
+  text-decoration:none;
+}
+HEADER NAV LI:hover{
+  background-color:orange;
+}
 .content{
-  padding-top:30px;
+  padding-top: 45px;
 }
 .header-search{
   height:40px;
@@ -58,6 +63,23 @@ FOOTER, .wrap:after {
   font-weight: bold;
   width: 50%;
   margin: 0 auto;
+  position: relative;
+}
+.footer-title:after,
+.footer-title:before{
+  content:'';
+  height:5px;
+  width:49%;
+  position: absolute;
+  top: 25px;
+}
+.footer-title:after{
+  left: 0;
+  background-color:black;
+}
+.footer-title:before{
+  right:0;
+  background-color:lightgrey;
 }
 .footer-posts {
   margin-top: 20px;
