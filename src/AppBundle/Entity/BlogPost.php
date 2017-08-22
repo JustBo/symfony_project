@@ -46,7 +46,10 @@ class BlogPost
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="blogPosts")
      */
     private $category;
-
+    /**
+     * @ORM\OneToOne(targetEntity="Icon", inversedBy="blogPosts")
+     */
+    private $icon;
     /**
      * Get id
      *
@@ -139,6 +142,18 @@ class BlogPost
     public function getCategory()
     {
        return $this->category;
+    }
+
+    public function setIcon(Icon $icon)
+    {
+       $this->icon = $icon;
+
+       return $this;
+    }
+
+    public function getIcon()
+    {
+       return $this->icon;
     }
 
 }
