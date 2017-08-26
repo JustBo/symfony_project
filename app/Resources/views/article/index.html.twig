@@ -1,10 +1,12 @@
 
 {% extends 'base.html.twig' %}
 
+{% block title %}{{article.title}}{% endblock %}
 {% block content %}
   <h1>
     Hello, this is article with id = {{article.id}}
   </h1>
+  <img src="{{asset('img/icons/' ~ article.icon.fullname)}}">
   <h2>{{article.title}}</h2>
   <p>{{article.body}}</p>
 {% endblock %}

@@ -5,8 +5,9 @@
   {% include 'home/logo.html.twig' with {'name': 'Bloger Name', 'quote' : 'Travel & enjoy'} %}
   <h1>Hello symfony</h1>
   {% for blog in blogs %}
-    {{dump(blog)}}
+  
     <a href="{{ path('article',{'id':blog.id}) }}" class="blog-item">
+      <img src="{{asset('img/icons/' ~ blog.icon.fullname)}}">
       <span class="id">
         {{blog.id}}
       </span>
