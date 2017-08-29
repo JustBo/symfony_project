@@ -47,7 +47,7 @@ class BlogPost
      */
     private $category;
     /**
-     * @ORM\OneToOne(targetEntity="Icon", inversedBy="blogPosts")
+     * @ORM\ManyToOne(targetEntity="Icon", inversedBy="blogPosts")
      */
     private $icon;
     /**

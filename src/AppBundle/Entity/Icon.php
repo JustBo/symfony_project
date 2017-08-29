@@ -34,7 +34,7 @@ class Icon
      */
     private $small;
     /**
-    * @ORM\OneToOne(targetEntity="BlogPost", mappedBy="icon")
+    * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="icon")
     */
     private $blogPosts;
     /**
