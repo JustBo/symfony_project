@@ -81,3 +81,9 @@ fos_user:
     from_email:
         address: b.tsybulskyy@gmail.com
         sender_name: Bohdan Tsybulskyy
+doctrine_cache:
+  providers:
+    my_markdown_cache:
+      type: file_system
+      file_system:
+        directory: /tmp/doctrine_cache

@@ -24,9 +24,25 @@ class BlogController extends Controller{
 
     public function showFooterPostsAction(){
         $limit = 3;
+        $cache = $this->get('doctrine_cache.providers.my_markdown_cache');
         $repository = $this->getDoctrine()->getRepository(BlogPost::class);
-        $recentBlogs = $repository->findRecentPosts($limit);
-        $popularBlogs = $repository->findPopularPosts($limit);
+        $recentKey = md5( 'recent' );
+        $popularKey = md5( 'popular' );
+
+        if( $cache->contains( $recentKey ) ){
+          $recentBlogs = $cache->fetch( $recentKey );
+        }else{
+          $recentBlogs = $repository->findRecentPosts($limit);
+          $cache->save( $recentKey, $recentBlogs );
+        }
+        if( $cache->contains( $popularKey ) ){
+          $popularBlogs = $cache->fetch( $popularKey );
+        }else{
+          $popularBlogs = $repository->findPopularPosts($limit);
+          $cache->save( $recentKey, $popularBlogs );
+        }
+
+        //var_dump($popularBlogs[0]->getId());
         // $blogs = $repository->findAll();
         return $this->render('footer/blogs.html.twig',[
           'recentBlogs' => $recentBlogs,
