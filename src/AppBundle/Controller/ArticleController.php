@@ -46,6 +46,7 @@ class ArticleController extends Controller{
         if(!$article){
           throw $this->createNotFoundException('This post does not exist!');
         }
+
         return $this->render('article/index.html.twig',[
           'article' => $article
         ]);

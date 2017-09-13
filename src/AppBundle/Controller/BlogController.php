@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\BlogPost;
 use AppBundle\Repository\BlogPostRepository;
+//use AppBundle\Service\CacheData;
 
 class BlogController extends Controller{
     /**
@@ -23,9 +24,11 @@ class BlogController extends Controller{
     }
 
     public function showFooterPostsAction(){
+        $cacher = $this->get('app.cacher');
         $limit = 3;
-        $cache = $this->get('doctrine_cache.providers.my_markdown_cache');
+        $cache = $this->get('doctrine_cache.providers.my_cache');
         $repository = $this->getDoctrine()->getRepository(BlogPost::class);
+
         $recentKey = md5( 'recent' );
         $popularKey = md5( 'popular' );
 
